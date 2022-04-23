@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&family=Poppins:wght@100&family=Tapestry&display=swap"
+        rel="stylesheet">
+
+    <title>Calculator</title>
+</head>
+
+<body>
+    <style>
+        * {
+            font-family: 'Libre Bodoni', serif;
+            font-family: 'Poppins', sans-serif;
+            font-family: 'Tapestry', cursive;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-image: linear-gradient(blue, purple);
+            height: 97.5vh;
+        }
+
+        .form {
+            position: relative;
+            top: 4rem;
+            border: solid black;
+            border-radius: 0.6rem;
+            padding: 4rem;
+            background-color: white;
+            border-top:0.5rem solid skyblue;
+            border-bottom:0.5rem solid skyblue  ;
+            border-left: 0.5rem solid skyblue;
+            border-right: 0.5rem solid skyblue;
+        }
+
+        @media(max-width:320px) {
+            body {
+                position: relative;
+                left: 3rem;
+                width: 13rem;
+                padding: 15prem;
+            }
+        }
+    </style>
+    <div>
+        <center>
+            <h1>Calculator</h1>
+        </center>
+
+        <form method="post" onsubmit="num1()" class="form">
+            <input type="text" value="v1" placeholder="Enter any no." required id="input1"><br><br>
+            <input type="text" value="v2" placeholder="Enter any no." required id="input2"><br><br>
+            <input type="text" placeholder="total" id="inp3"><br><br>
+            <button>Calculate</button>
+        </form>
+        <h1 id="inp3"></h1>
+    </div>
+</body>
+
+<script>
+    function num1() {
+        var n1 = document.getElementById("input1").value
+        var n2 = document.getElementById("input2").value
+        var n3 = Number(n1) + Number(n2)
+        // console.log(typeof (n3), n3);
+        document.getElementById('inp3').value = n3
+        // alert("sumitte   d")
+    }
+</script>
+
+</html>
