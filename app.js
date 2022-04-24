@@ -1,31 +1,27 @@
 const express=require("express")
+// const hbs=require("hbs")
 var app=express()
+const path=require("path")
+app.use(express.urlencoded({extended:false}))
+app.use(express.json())
+const tempelate_path=path.join(__dirname,"../client")
+app.set("view engine","hbs")
 
-const bodyParser=require("body-parser")
-app.use(bodyParser.json());
-
-app.use(bodyParser.urlencoded({extended:true}))
-
-app.get("/",(req,res)=>{
-    res.send("<h1>Welcome to home page </h1>")
-})
-
-app.get("/about",(req,res)=>{
-    res.send("Welcome to about page")
-})
+app.set("views",tempelate_path)
 
 app.get("/calculator",(req,res)=>{
-    // console.log(__dirname);
-    res.sendFile(__dirname+"/index.html")
+    res.render("index")
 })
 
+// app.get("/calculator",(req,res)=>{
+//     // console.log(__dirname);
+//     res.sendFile(__dirname+"/index.html")
+// })
+
 app.post("/calculator",(req,res)=>{ 
-    console.log(req.body);
-    res.send("<h1> Your data is submitted successfully </h1>")
-    // var v1=Number(req.body.v1)
-    // var v2=Number(req.body.v2)
-    // var v3=v1+v2
-    // res.end(v3)
+    console.log(req.body.v1);
+    // res.send("<h1> Your data is submitted successfully </h1>")
+    res.send(String(Number(req.body.v1)+Number(req.body.v2)))
 
 })
 
